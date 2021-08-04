@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-
+                Toast.makeText(MainActivity.this, "Permission should be granted for displaying songs", Toast.LENGTH_SHORT).show();
             }
 
             @Override
