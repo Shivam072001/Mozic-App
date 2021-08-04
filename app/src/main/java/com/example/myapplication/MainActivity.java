@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         File[] files = file.listFiles();
         for (File singlefile: files)
         {
-            if(singlefile.isDirectory() && singlefile.isHidden())
+            if(singlefile.isDirectory() && !singlefile.isHidden())
                 arrayList.addAll(findSong(singlefile));
 
             else

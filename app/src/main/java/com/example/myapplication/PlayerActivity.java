@@ -2,12 +2,15 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -22,6 +25,7 @@ public class PlayerActivity extends AppCompatActivity {
     TextView txtsname,txtsstart,txtsstop;
     SeekBar seekmusic;
     BarVisualizer visualizer;
+    ImageView imageView;
 
     String sname;
     public static final String EXTRA_NAME = "song_name";
@@ -45,6 +49,7 @@ public class PlayerActivity extends AppCompatActivity {
         txtsstop = findViewById(R.id.txtstop);
         seekmusic = findViewById(R.id.seekbar);
         visualizer = findViewById(R.id.blast);
+        imageView = findViewById(R.id.imageview);
 
         if(mediaPlayer!=null)
         {
@@ -82,5 +87,14 @@ public class PlayerActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void startAnimation(View view)
+    {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageView,"rotation",0f,360f);
+        animator.setDuration(1000);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(animator);
+        animatorSet.start();
     }
 }
