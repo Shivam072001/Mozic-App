@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
 
-                        permissionToken.continuePermissionRequest();
                         Toast.makeText(MainActivity.this, "Permissions for both of these should be granted", Toast.LENGTH_SHORT).show();
+                        permissionToken.continuePermissionRequest();
 
                     }
                 }).check();
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
             else
             {
+
                 if(singlefile.getName().endsWith(".mp3") || singlefile.getName().endsWith(".wav"))
                     arrayList.add(singlefile);
 
